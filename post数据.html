@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.0.0.js" ></script>
+	</head>
+	<body>
+		<form action="#" >
+			<div>
+				
+				<ul>
+					<li><input type="text"  name="name"/></li>
+				    <li><input type="text" name="href"/></li>
+				    <button id="btn">提交</button>
+				</ul>
+			</div>
+			
+		</form>
+		
+		<script>
+			var url="http://localhost:5555/person";
+			$("#btn").click(function(e){
+				e.preventDefault();
+				var name= $('input:first').val();
+				var href=$('input:last').val();
+				var obj={
+					'name':name,
+					'href':href
+				}
+				var data=JSON.stringify(obj)
+				$.post(url,$('form').serialize(),function(){
+					alert(1)
+				})
+				
+				
+			})
+			
+			
+		</script>
+		
+	</body>
+</html>
